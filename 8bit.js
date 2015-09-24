@@ -1,7 +1,7 @@
 /**
  * 8bit
  *
- * A function that converts an image into a pixelated version (just like
+ * A module that converts an image into a pixelated version (just like
  * 8bit artwork).
  *
  * @author rogeriopvl <https://github.com/rogeriopvl>
