@@ -18,13 +18,15 @@
 
 ## Usage
 
-    var eightBit = require('8bit'); // only needed for NPM installs
+```javascript
+var eightBit = require('8bit'); // only needed for NPM installs
 
-    var img = new Image();
-    img.onload = function () {
-        eightBit(document.getElementById('mycanvas'), img, 10);
-    };
-    img.src = 'http://foobar.com/your_image.png';
+var img = new Image();
+img.onload = function () {
+    eightBit(document.getElementById('mycanvas'), img, 10);
+};
+img.src = 'http://foobar.com/your_image.png';
+```
 
 ### API
 
