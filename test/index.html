@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8bit test</title>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <script src="../8bit.js"></script>
+    <script>
+        var img = new Image();
+        img.onload = function () {
+            eightBit(document.getElementById('canvas'), img, 10);
+        };
+        img.src = 'test.png';
+    </script>
+</body>
+</html>
