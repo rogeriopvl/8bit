@@ -1,7 +1,7 @@
 {
   "name": "8bit",
   "version": "1.0.0",
-  "description": "Transform images into pixelated versions",
+  "description": "Transform images into pixelated versions using canvas",
   "main": "8bit.js",
   "scripts": {
     "test": "tape test/*.js"
