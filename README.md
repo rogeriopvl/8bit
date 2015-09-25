@@ -14,7 +14,7 @@
 
 ### Direct file link
 
-    <script type="text/javascript" src="https://raw.githubusercontent.com/rogeriopvl/8bit/master/8bit.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/rogeriopvl/8bit/master/8bit.js"></script>
 
 ## Usage
 
