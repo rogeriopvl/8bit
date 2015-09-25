@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>8bit</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;" src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png" alt="Fork me on GitHub"></a>
+    <div class="container">
+        <h1>8Bit</h1>
+
+        <p>8Bit is a Javascript module that transforms images into pixelated versions in canvas.</p>
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Before</h3>
+                <img src="images/js.png" alt="js logo">
+            </div>
+
+            <div class="col-md-3">
+                <h3>After</h3>
+                <canvas id="canvas"></canvas>
+                <small>Using factor 10</small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Before</h3>
+                <img src="images/surf.jpg" alt="surfer">
+            </div>
+
+            <div class="col-md-3">
+                <h3>After</h3>
+                <canvas id="canvas2"></canvas>
+                <small>Using factor 20</small>
+            </div>
+        </div>
+
+        <h2>Usage Example</h2>
+
+        <div class="row">
+            <h4>HTML</h4>
+            <pre class="col-md-6">
+&lt;canvas id="canvas"&gt;&lt;/canvas&gt;
+            </pre>
+        </div>
+
+        <div class="row">
+            <h4>Javascript</h4>
+            <pre class="col-md-6">
+var img = new Image();
+img.onload = function () {
+    eightBit(document.getElementById('canvas'), img, 10);
+};
+img.src = 'http://foobar.com/some_image.jpg';
+            </pre>
+        </div>
+    </div>
+
+    <script src="8bit.js"></script>
+    <script>
+        var img = new Image();
+        img.onload = function () {
+            eightBit(document.getElementById('canvas'), img, 10);
+        };
+        img.src = 'images/js.png';
+
+        var img2 = new Image();
+        img2.onload = function () {
+            eightBit(document.getElementById('canvas2'), img2, 20);
+        };
+        img2.src = 'images/surf.jpg';
+
+    </script>
+</body>
+</html>
