@@ -1,6 +1,7 @@
 # 8Bit [![Build Status](https://travis-ci.org/rogeriopvl/8bit.svg)](https://travis-ci.org/rogeriopvl/8bit)
 
-8Bit is a javascript module that converts an image into a pixelated version using canvas
+8Bit is a javascript module that converts an image into a pixelated version using canvas.
+You can find a demo [here](https://jsfiddle.net/fLajrmun/2/).
 
 ## Install
 
