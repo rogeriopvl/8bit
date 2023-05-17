@@ -32,14 +32,24 @@
     var scaledW = canvas.width * scale;
     var scaledH = canvas.height * scale;
 
-    var ctx = canvas.getContext('2d');
+    var tempCanvas = document.createElement('canvas');
+    tempCanvas.width = scaledW;
+    tempCanvas.height = scaledH;
 
+    var tempCtx = tempCanvas.getContext('2d');
+    tempCtx.mozImageSmoothingEnabled = false;
+    tempCtx.webkitImageSmoothingEnabled = false;
+    tempCtx.imageSmoothingEnabled = false;
+
+    tempCtx.drawImage(image, 0, 0, scaledW, scaledH);
+
+    var ctx = canvas.getContext('2d');
     ctx.mozImageSmoothingEnabled = false;
     ctx.webkitImageSmoothingEnabled = false;
     ctx.imageSmoothingEnabled = false;
 
-    ctx.drawImage(image, 0, 0, scaledW, scaledH);
-    ctx.drawImage(canvas, 0, 0, scaledW, scaledH, 0, 0, image.width, image.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(tempCanvas, 0, 0, scaledW, scaledH, 0, 0, canvas.width, canvas.height);
   };
 
   return eightBit;
