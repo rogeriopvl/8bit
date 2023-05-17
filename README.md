@@ -1,4 +1,4 @@
-# 8Bit
+# 8Bit | ![CI status](https://github.com/rogeriopvl/8bit/actions/workflows/test.yml/badge.svg?branch=master)
 
 8Bit is a javascript module that converts an image into a pixelated version using canvas.
 
