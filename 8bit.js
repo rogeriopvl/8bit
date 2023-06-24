@@ -17,29 +17,36 @@
     root.eightBit = factory();
   }
 } (this, function () {
+  // Necessary to hide the original image with PNG transparency
+  const invisibleCanvas = document.createElement('canvas');
+  const invisibleCtx = invisibleCanvas.getContext('2d');
+
   /**
-   * Draws a pixelated version of an image in a given canvas
+   * Draws a pixelated version of an image in a given canvas.
    * @param {object} canvas - a canvas object
    * @param {object} image - an image HTMLElement object
-   * @param {number} scale - the scale factor: between 0 and 100
+   * @param {number} quality - the new quality: between 0 and 100
    */
-  var eightBit = function (canvas, image, scale) {
-    scale *= 0.01;
+  const eightBit = function (canvas, image, quality) {
+    quality /= 100;
 
-    canvas.width = image.width;
-    canvas.height = image.height;
+    canvas.width = invisibleCanvas.width = image.width;
+    canvas.height = invisibleCanvas.height = image.height;
 
-    var scaledW = canvas.width * scale;
-    var scaledH = canvas.height * scale;
-
-    var ctx = canvas.getContext('2d');
+    const scaledW = canvas.width * quality;
+    const scaledH = canvas.height * quality;
+    const ctx = canvas.getContext('2d');
 
     ctx.mozImageSmoothingEnabled = false;
     ctx.webkitImageSmoothingEnabled = false;
     ctx.imageSmoothingEnabled = false;
 
-    ctx.drawImage(image, 0, 0, scaledW, scaledH);
-    ctx.drawImage(canvas, 0, 0, scaledW, scaledH, 0, 0, image.width, image.height);
+    // Draws image scaled to desired quality on the invisible canvas, then
+    // draws that scaled image on the visible canvas.
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    invisibleCtx.clearRect(0, 0, invisibleCtx.canvas.width, invisibleCtx.canvas.height);
+    invisibleCtx.drawImage(image, 0, 0, scaledW, scaledH);
+    ctx.drawImage(invisibleCtx.canvas, 0, 0, scaledW, scaledH, 0, 0, canvas.width, canvas.height);
   };
 
   return eightBit;
